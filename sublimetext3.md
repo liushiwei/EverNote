@@ -3,12 +3,17 @@ title: Sublime Text 3
 tags: ["Android", "JAVA"]
 notebook: George 的笔记本
 ---
+<!-- MarkdownTOC -->
+
+- [Evernote user](#evernote-user)
+
+<!-- /MarkdownTOC -->
 
 # Evernote user
 
 ```css
 {
- "code_highlighting_style": "monokai",
+ "code_highlighting_style": "github",
 "inline_css":
 {
 "blockquote": "border-left: 10px solid #e7ecee; background-color:#f2f4f6; margin-left: 0px; padding-left: 1em; padding:20px; margin-top: 1.4285em; margin-bottom: 1.4285em;",
