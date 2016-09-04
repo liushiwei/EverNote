@@ -96,3 +96,6 @@ WITH_DEXPREOPT := false
         return true;
     }
 ```
+
+	由于ro.build.fingerprint 长度超过了92个字符，修该下面的文件
+	system/core/include/cutils/properties.h
