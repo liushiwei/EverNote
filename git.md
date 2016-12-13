@@ -9,6 +9,7 @@ notebook: George 的笔记本
 - [git查看某个文件的修改历史](#git查看某个文件的修改历史)
 - [git加入忽略文件权限的配置](#git加入忽略文件权限的配置)
 - [git配置别名](#git配置别名)
+- [Global setting](#global-setting)
 
 <!-- /MarkdownTOC -->
 
@@ -49,3 +50,11 @@ notebook: George 的笔记本
 	别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。
 
 	而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中：
+
+
+# Global setting
+
+```shell
+	git config --global user.email "liushiwei.go@gmail.com"
+  	git config --global user.name "George"
+```

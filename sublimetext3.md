@@ -6,6 +6,8 @@ notebook: George 的笔记本
 <!-- MarkdownTOC -->
 
 - [Evernote user](#evernote-user)
+- [MarkdownTOC](#markdowntoc)
+- [KeyBind](#keybind)
 
 <!-- /MarkdownTOC -->
 
@@ -40,4 +42,27 @@ notebook: George 的笔记本
  "noteStoreUrl": "https://app.yinxiang.com/shard/s1/notestore",
  "token": "S=s1:U=55fba:E=15e1c6cc063:C=156c4bb9150:P=1cd:A=en-devtoken:V=2:H=43b88078b390025a0bf9ae553f26f05d"
 }
+```
+
+# MarkdownTOC 
+
+```css
+
+{
+  "default_autolink": true,            #目录以链接形式呈现
+  "default_bracket": "round",        #目录以链接形式呈现
+  "default_depth": 0                  #无限目录深度
+}
+
+```
+
+# KeyBind
+
+```css
+[
+	{ "keys": ["super+e"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Evernote: "} },
+	{ "keys": ["ctrl+e", "ctrl+s"], "command": "send_to_evernote" },
+	{ "keys": ["ctrl+e", "ctrl+o"], "command": "open_evernote_note" },
+	{ "keys": ["ctrl+e", "ctrl+u"], "command": "save_evernote_note" },
+]
 ```

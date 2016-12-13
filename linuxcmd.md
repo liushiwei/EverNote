@@ -6,13 +6,16 @@ notebook: linux
 <!-- MarkdownTOC -->
 
 - [Samba 配置](#samba-配置)
+- [ubuntu system setup](#ubuntu-system-setup)
 
 <!-- /MarkdownTOC -->
 
 # Samba 配置
 	
-	$ sudo service smbd restart
-	$ sudo vim /etc/samba/smb.conf
+    $ sudo service smbd restart
+    $ sudo apt-get install samba
+    $ sudo smbpasswd -a george
+    $ sudo vim /etc/samba/smb.conf
 
 ```shell
 
@@ -38,10 +41,19 @@ notebook: linux
 [home]
     comment = Private Directory
     path = /home/
-    valid users= liusw
+    valid users= george
     writables = yes
-    write list= liusw
+    write list= george
 
 ```
 
 ***********
+
+# ubuntu system setup
+
+```shell
+
+sudo apt-get install gnome-control-center
+sudo apt-get install ubuntu-desktop
+
+```
