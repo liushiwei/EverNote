@@ -9,6 +9,7 @@ notebook: George 的笔记本
 - [git查看某个文件的修改历史](#git查看某个文件的修改历史)
 - [git加入忽略文件权限的配置](#git加入忽略文件权限的配置)
 - [git配置别名](#git配置别名)
+- [配置本地分支和远程分支的关系](#配置本地分支和远程分支的关系)
 - [Global setting](#global-setting)
 
 <!-- /MarkdownTOC -->
@@ -41,6 +42,7 @@ notebook: George 的笔记本
 	git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 ```
+
 	配置文件
 
 	配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
@@ -51,6 +53,14 @@ notebook: George 的笔记本
 
 	而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中：
 
+
+# 配置本地分支和远程分支的关系
+
+```shell
+	
+	git branch --set-upstream-to=origin/<branch> dev
+
+```
 
 # Global setting
 
