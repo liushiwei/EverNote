@@ -28,7 +28,7 @@ notebook: George 的笔记本
 
 ``` 
 
-# git配置别名
+# git配置别名 
 
 ```shell
 

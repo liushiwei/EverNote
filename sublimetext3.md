@@ -60,9 +60,25 @@ notebook: George 的笔记本
 
 ```css
 [
-	{ "keys": ["super+e"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Evernote: "} },
-	{ "keys": ["ctrl+e", "ctrl+s"], "command": "send_to_evernote" },
-	{ "keys": ["ctrl+e", "ctrl+o"], "command": "open_evernote_note" },
-	{ "keys": ["ctrl+e", "ctrl+u"], "command": "save_evernote_note" },
+ { "keys": ["shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"} },
+ { "keys": ["alt+up"], "command": "swap_line_up" },
+ { "keys": ["alt+down"], "command": "swap_line_down" },
+ { "keys": ["ctrl+alt+j"], "command": "join_lines" },
+ { "keys": ["ctrl+alt+down"], "command": "duplicate_line" },
+ { "keys": ["shift+ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+ { "keys": ["ctrl+shift+s"], "command": "save_all" },
+ { "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+ { "keys": ["shift+ctrl+f4"], "command": "close_all" },
+ { "keys": ["shift+ctrl+y"], "command": "lower_case" },
+ { "keys": ["shift+ctrl+x"], "command": "upper_case" },
+ { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"} },
+ { "keys": ["ctrl+shift+e"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Evernote: "} },
+ { "keys": ["ctrl+e", "ctrl+s"], "command": "send_to_evernote" },
+ { "keys": ["ctrl+e", "ctrl+o"], "command": "open_evernote_note" },
+ { "keys": ["ctrl+e", "ctrl+n"], "command": "new_evernote_note" },
+ { "keys": ["ctrl+s"], "command": "save_evernote_note", "context": [{"key": "evernote_note"}] },
+ { "keys": ["ctrl+s"], "command": "send_to_evernote", "context": [{"key": "evernote_note", "operator": "equal", "operand": false}, {"key": "selector", "operator": "equal", "operand": "text.html.markdown.evernote"}] },
+ { "keys": ["alt+m"], "command": "markdown_preview", "args": { "target": "browser"} }
 ]
+
 ```

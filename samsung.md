@@ -10,6 +10,7 @@ notebook: Android
 - [删除Overlay](#删除overlay)
 - [不编译ODEX](#不编译odex)
 - [开机弹错误提示](#开机弹错误提示)
+- [GPIO](#gpio)
 
 <!-- /MarkdownTOC -->
 
@@ -99,3 +100,18 @@ WITH_DEXPREOPT := false
 
 	由于ro.build.fingerprint 长度超过了92个字符，修该下面的文件
 	system/core/include/cutils/properties.h
+
+# GPIO
+
+```shell
+wirte 1  /sys/class/gpio/gpio/gpio74/value
+
+write 0 为低 
+
+1；GPIOC9 为蓝牙电源控制，输出高为开，低为关，系统启动后开启。
+2；GPIOC7 为蓝牙复位。
+3；GPIOC16 为音频通道切换，导航播报时拉高，播报结束后拉低。
+4；GPIOC10 为功放MUTE控制，系统启动后为高静音，导航播报时拉低出声。
+5；GPIOB8（REAR_AV_SW1），GPIOB4（REAR_AV_SW2），音频通道切换
+
+```
