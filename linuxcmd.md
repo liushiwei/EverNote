@@ -6,6 +6,7 @@ notebook: linux
 <!-- MarkdownTOC -->
 
 - [Samba 配置](#samba-配置)
+- [adb shell 没有权限的问题](#adb-shell-没有权限的问题)
 
 <!-- /MarkdownTOC -->
 
@@ -45,3 +46,51 @@ notebook: linux
 ```
 
 ***********
+
+# adb shell 没有权限的问题
+
+If I run lsusb, I can see which devices I have connected, and where:
+
+```shell
+$ lsusb
+...
+Bus 002 Device 050: ID 04e8:6860 Samsung Electronics Co., Ltd GT-I9100 Phone ...
+Bus 002 Device 049: ID 18d1:4e42 Google Inc. 
+
+```
+
+This is showing my Samsung Galaxy S3 and my Nexus 7 (2012) connected.
+
+Checking the permissions on those:
+
+```shell
+
+$ ls -l /dev/bus/usb/002/{049,050}
+crw-rw-r--  1 root root    189, 176 Oct 10 10:09 /dev/bus/usb/002/049
+crw-rw-r--+ 1 root plugdev 189, 177 Oct 10 10:12 /dev/bus/usb/002/050
+
+```
+
+Wait. What? Where did that "plugdev" group come from?
+
+```shell
+
+$ cd /lib/udev/rules.d/
+$ grep -R "6860.*plugdev" .
+./40-libgphoto2-2.rules:ATTRS{idVendor}=="0bb4", ATTRS{idProduct}=="6860", \
+  ENV{ID_GPHOTO2}="1", ENV{GPHOTO2_DRIVER}="proprietary", \
+  ENV{ID_MEDIA_PLAYER}="1", MODE="0664", GROUP="plugdev"
+./40-libgphoto2-2.rules:ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", \
+  ENV{ID_GPHOTO2}="1", ENV{GPHOTO2_DRIVER}="proprietary", \
+  ENV{ID_MEDIA_PLAYER}="1", MODE="0664", GROUP="plugdev"
+
+```
+
+Add a rule
+
+Create a file /etc/udev/rules.d/99-adb.rules containing the following line:
+
+```shell
+ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4e42", ENV{ID_GPHOTO2}="1",
+  ENV{GPHOTO2_DRIVER}="proprietary", ENV{ID_MEDIA_PLAYER}="1",
+  MODE="0664", GROUP="plugdev"bndxgae
