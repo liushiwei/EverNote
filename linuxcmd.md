@@ -7,13 +7,16 @@ notebook: linux
 
 - [Samba 配置](#samba-配置)
 - [adb shell 没有权限的问题](#adb-shell-没有权限的问题)
+- [ubuntu system setup](#ubuntu-system-setup)
 
 <!-- /MarkdownTOC -->
 
 # Samba 配置
 	
-	$ sudo service smbd restart
-	$ sudo vim /etc/samba/smb.conf
+    $ sudo service smbd restart
+    $ sudo apt-get install samba
+    $ sudo smbpasswd -a george
+    $ sudo vim /etc/samba/smb.conf
 
 ```shell
 
@@ -39,9 +42,9 @@ notebook: linux
 [home]
     comment = Private Directory
     path = /home/
-    valid users= liusw
+    valid users= george
     writables = yes
-    write list= liusw
+    write list= george
 
 ```
 
@@ -94,3 +97,13 @@ Create a file /etc/udev/rules.d/99-adb.rules containing the following line:
 ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4e42", ENV{ID_GPHOTO2}="1",
   ENV{GPHOTO2_DRIVER}="proprietary", ENV{ID_MEDIA_PLAYER}="1",
   MODE="0664", GROUP="plugdev"bndxgae
+```
+
+# ubuntu system setup
+
+```shell
+
+sudo apt-get install gnome-control-center
+sudo apt-get install ubuntu-desktop
+
+```  

@@ -10,6 +10,7 @@ notebook: George 的笔记本
 - [git加入忽略文件权限的配置](#git加入忽略文件权限的配置)
 - [git配置别名](#git配置别名)
 - [配置本地分支和远程分支的关系](#配置本地分支和远程分支的关系)
+- [Global setting](#global-setting)
 
 <!-- /MarkdownTOC -->
 
@@ -59,4 +60,11 @@ notebook: George 的笔记本
 	
 	git branch --set-upstream-to=origin/<branch> dev
 
+```
+
+# Global setting
+
+```shell
+	git config --global user.email "liushiwei.go@gmail.com"
+  	git config --global user.name "George"
 ```
