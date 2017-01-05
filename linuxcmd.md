@@ -11,6 +11,8 @@ notebook: linux
 - [ubuntu samba mount](#ubuntu-samba-mount)
 - [find cmd](#find-cmd)
 - [列出某个IP地址所提供的共享文件夹](#列出某个ip地址所提供的共享文件夹)
+- [Linux批量重命名 rename & mv](#linux批量重命名-rename--mv)
+- [linux上一款功能强大的取色工具](#linux上一款功能强大的取色工具)
 
 <!-- /MarkdownTOC -->
 
@@ -136,3 +138,22 @@ find . -type f -regex ".*/[0-9a-z_]+" -exec chmod u+x {} \;
 smbclient -L 198.168.0.1 -U username%password
 
 ```
+
+# Linux批量重命名 rename & mv
+
+    http://www.cnblogs.com/longdouhzt/archive/2012/04/30/2477282.html
+    所有的小写字母变大写字母
+```shell
+
+[root@pps mailqueue]# for i in `ls`; do mv -f $i `echo $i | tr a-z A-Z`; done
+
+```
+
+# linux上一款功能强大的取色工具
+
+```shell
+
+sudo apt-get install gpick 
+
+```
+
